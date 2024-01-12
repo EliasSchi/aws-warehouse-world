@@ -1,13 +1,31 @@
 <?xml version='1.0' encoding='utf-8'?>
 <sdf version="1.6">
   <world name="default">
-    
-    <gravity>0 0 -9.8</gravity>
-    <physics default="0" name="default_physics" type="ode">
+    <physics name="default_physics" default="true" type="ode">
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>100</iters>
+          <sor>1.0</sor>
+        </solver>
+        <constraints>
+          <cfm>1e-9</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode>
     </physics>
+
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <ros>
+        <namespace>/gazebo_spawner</namespace>
+      </ros>
+      <update_rate>1.0</update_rate>
+    </plugin>
 
     
     <!--model name="aws_robomaker_warehouse_RoofB_01_001">
@@ -80,6 +98,106 @@
         <pose frame="">-11.559405 0 0 0 0 0</pose>
 	</model>
 
+    <model name="aws_robomaker_warehouse_ShelfD_01_004">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfD_01</uri>
+        </include>
+        <pose frame="">5.199940 18.557900 0 0 0 -1.570796</pose>
+	</model>
+
+    <model name="aws_robomaker_warehouse_ShelfD_01_005">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfD_01</uri>
+        </include>
+        <pose frame="">9.459050 18.557900  0 0 0 -1.570796</pose>
+	</model>
+
+    <model name="aws_robomaker_warehouse_ShelfD_01_006">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfD_01</uri>
+        </include>
+        <pose frame="">13.186900 18.557900  0 0 0 -1.570796</pose>
+	</model>
+
+    <model name="aws_robomaker_warehouse_ShelfD_01_007">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfD_01</uri>
+        </include>
+        <pose frame="">5.199940 11.657400 0 0 0 -1.570796</pose>
+	</model>
+
+    <model name="aws_robomaker_warehouse_ShelfD_01_008">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfD_01</uri>
+        </include>
+        <pose frame="">9.459050 11.657400  0 0 0 -1.570796</pose>
+	</model>
+
+    <model name="aws_robomaker_warehouse_ShelfD_01_009">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfD_01</uri>
+        </include>
+        <pose frame="">13.186900 11.657400 0 0 0 -1.570796</pose>
+	</model>
+    
+    <model name="aws_robomaker_warehouse_ShelfD_01_010">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfD_01</uri>
+        </include>
+        <pose frame="">5.199940 7.687650 0 0 0 -1.570796</pose>
+	</model>
+
+    <model name="aws_robomaker_warehouse_ShelfD_01_011">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfD_01</uri>
+        </include>
+        <pose frame="">9.459050 7.687650  0 0 0 -1.570796</pose>
+	</model>
+
+    <model name="aws_robomaker_warehouse_ShelfD_01_012">
+        <include>
+            <uri>model://aws_robomaker_warehouse_ShelfD_01</uri>
+        </include>
+        <pose frame="">13.186900 7.687650 0 0 0 -1.570796</pose>
+	</model>
+
+    <model name="aws_robomaker_warehouse_Cone_01_001">
+        <include>
+            <uri>model://aws_robomaker_warehouse_Cone_01</uri>
+        </include>
+        <pose frame="">-8.159620 9.565130 0 0 0 0</pose>
+    </model>
+
+    <model name="aws_robomaker_warehouse_Cone_01_002">
+        <include>
+            <uri>model://aws_robomaker_warehouse_Cone_01</uri>
+        </include>
+        <pose frame="">-8.159620 7.954140 0 0 0 0</pose>
+    </model>
+
+    <model name="aws_robomaker_warehouse_Pallet_01_001">
+        <include>
+            <uri>model://aws_robomaker_warehouse_Pallet_01</uri>
+        </include>
+        <pose frame="">-9.0482 8.63539 0 0 -0 0</pose>
+    </model>
+
+    <model name="aws_robomaker_warehouse_Pallet_01_002">
+        <include>
+            <uri>model://aws_robomaker_warehouse_Pallet_01</uri>
+        </include>
+        <pose frame="">-10.2956 8.61557 0 0 -0 0</pose>
+    </model>
+
+    <model name="aws_robomaker_warehouse_Pallet_01_003">
+        <include>
+            <uri>model://aws_robomaker_warehouse_Pallet_01</uri>
+        </include>
+        <pose frame="">-11.6105 8.6083 0 0 -0 0</pose>
+    </model>
+
+
+   
     <!--model name="aws_robomaker_warehouse_DeskC_01_001">
         <include>
             <uri>model://aws_robomaker_warehouse_DeskC_01</uri>
@@ -105,7 +223,7 @@
         <include>
             <uri>model://aws_robomaker_warehouse_GroundB_02</uri>
         </include>
-        <pose frame="">0.0 0.0 -0.180184 0 0 0</pose>
+        <pose frame="">0.0 0.0 -0.250184 0 0 0</pose>
 	</model>
 
     <model name="aws_robomaker_warehouse_Bucket_01_020">
@@ -207,14 +325,35 @@
 	</model>
 
 
-      <model name='aws_robomaker_warehouse_PalletJackB_01_001'>
+    <model name='aws_robomaker_warehouse_PalletJackB_01_001'>
         <include>
             <uri>model://aws_robomaker_warehouse_PalletJackB_01</uri>
         </include>
         <pose frame=''>-0.276098 -9.481944 0.023266 0 0 0</pose>
 	</model>
 
-       <model name='aws_robomaker_warehouse_Lamp_01_001'>
+    <model name='aws_robomaker_warehouse_Pole_01_001'>
+        <include>
+            <uri>model://aws_robomaker_warehouse_Pole_01</uri>
+        </include>
+        <pose frame=''>-4.882204 7.477726 0 0 0 1.570801</pose>
+	</model>
+
+    <model name='aws_robomaker_warehouse_Pole_01_002'>
+        <include>
+            <uri>model://aws_robomaker_warehouse_Pole_01</uri>
+        </include>
+        <pose frame=''>-4.882204 1.000683 0 0 0 1.570801</pose>
+	</model>
+
+    <model name='aws_robomaker_warehouse_Pole_01_003'>
+        <include>
+            <uri>model://aws_robomaker_warehouse_Pole_01</uri>
+        </include>
+        <pose frame=''>-4.882204 -5.402940 0 0 0 1.570801</pose>
+	</model>
+
+    <model name='aws_robomaker_warehouse_Lamp_01_001'>
         <include>
             <uri>model://aws_robomaker_warehouse_Lamp_01</uri>
         </include>
@@ -278,6 +417,13 @@
       <cast_shadows>1</cast_shadows>
       <direction>0.1 0.1 -1</direction>
     </light>
+
+    <gui>
+        <camera name="gzclient_camera">
+            <pose>-5.867263 -23.493496 34.811058 0 0.923642 1.472194</pose>
+        </camera>
+    </gui>
+
 
   </world>
 </sdf>
